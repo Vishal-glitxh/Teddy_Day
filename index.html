@@ -3,185 +3,608 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Teddy Day 🧸</title>
+<title>Happy Teddy Day, My Love! 🧸💕</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:"Comic Sans MS","Poppins",cursive;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-  height:100vh;
-  overflow:hidden;
-  background:linear-gradient(135deg,#fff0f5,#fef6e4,#e0f7fa);
-  display:flex;
-  align-items:center;
-  justify-content:center;
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ffe6f2, #ffd6e7, #ffcce0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
 }
 
-/* CARD */
-.card{
-  width:92%;
-  max-width:420px;
-  background:#fff;
-  border-radius:32px;
-  padding:28px;
-  text-align:center;
-  border:4px solid #ffc0cb;
-  box-shadow:0 14px 0 #ff9eb5;
-  animation:pop 0.6s ease;
-  position:relative;
-  z-index:2;
+/* SCREEN 0 - ENTRANCE */
+.screen {
+  width: 92%;
+  max-width: 480px;
+  background: #fff;
+  border-radius: 32px;
+  padding: 35px;
+  text-align: center;
+  border: 6px solid #ff9ec5;
+  box-shadow: 0 18px 0 #ff7eb3, 0 0 30px rgba(255, 126, 179, 0.2);
+  animation: pop 0.8s ease;
+  position: relative;
+  z-index: 10;
+  transition: all 0.5s ease;
 }
 
-@keyframes pop{
-  from{transform:scale(0.85);}
-  to{transform:scale(1);}
+@keyframes pop {
+  0% { transform: scale(0.85); opacity: 0; }
+  70% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
 }
 
-.hidden{display:none;}
-
-h1{
-  color:#ff6f91;
-  margin-bottom:12px;
+.hidden {
+  display: none;
 }
 
-p{
-  color:#ff8fab;
-  font-size:1.05em;
-  line-height:1.6;
-  min-height:70px;
+h1 {
+  color: #ff4d94;
+  margin-bottom: 15px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.8rem;
+  text-shadow: 2px 2px 4px rgba(255, 77, 148, 0.1);
+}
+
+h2 {
+  color: #ff66a3;
+  margin-bottom: 15px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.2rem;
+}
+
+.subtitle {
+  color: #ff3385;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+p {
+  color: #ff6699;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 10px;
 }
 
 /* TEDDY */
-.teddy{
-  font-size:90px;
-  margin:10px 0;
-  animation:breath 3s ease-in-out infinite;
-  cursor:pointer;
+.teddy-container {
+  position: relative;
+  margin: 20px 0;
 }
 
-@keyframes breath{
-  0%,100%{transform:scale(1);}
-  50%{transform:scale(1.05);}
+.teddy {
+  font-size: 120px;
+  margin: 10px 0;
+  animation: breath 3s ease-in-out infinite;
+  cursor: pointer;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  transition: transform 0.3s;
+  display: inline-block;
+}
+
+.teddy:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+@keyframes breath {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
 }
 
 /* HUG EFFECT */
-.hug{
-  animation:hug 0.4s ease;
+.hug {
+  animation: hug 0.5s ease;
 }
 
-@keyframes hug{
-  0%{transform:scale(1);}
-  50%{transform:scale(0.9);}
-  100%{transform:scale(1);}
+@keyframes hug {
+  0% { transform: scale(1); }
+  25% { transform: scale(0.85) rotate(-5deg); }
+  50% { transform: scale(0.9) rotate(5deg); }
+  75% { transform: scale(0.95) rotate(-3deg); }
+  100% { transform: scale(1); }
 }
 
-/* BUTTON */
-button{
-  margin-top:15px;
-  padding:12px 30px;
-  border:none;
-  border-radius:40px;
-  background:#ff85b3;
-  color:#fff;
-  font-size:1em;
-  cursor:pointer;
-  box-shadow:0 6px 0 #ff5f9e;
+/* HEART BEAT EFFECT */
+.heartbeat {
+  animation: heartbeat 1.2s ease infinite;
 }
 
-button:active{
-  transform:translateY(4px);
-  box-shadow:0 2px 0 #ff5f9e;
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.05); }
 }
 
-/* FLOATING HEARTS */
-.float{
-  position:absolute;
-  font-size:22px;
-  animation:floatUp linear infinite;
-  opacity:0.8;
-  pointer-events:none;
+/* BUTTONS */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
 }
 
-@keyframes floatUp{
-  from{transform:translateY(100vh);}
-  to{transform:translateY(-10vh);}
+button {
+  padding: 14px 32px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(to right, #ff85b3, #ff6b9d);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 0 #ff4d94, 0 10px 20px rgba(255, 77, 148, 0.2);
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 0 #ff4d94, 0 15px 25px rgba(255, 77, 148, 0.3);
+}
+
+button:active {
+  transform: translateY(5px);
+  box-shadow: 0 3px 0 #ff4d94;
+}
+
+#special-btn {
+  background: linear-gradient(to right, #ffb347, #ffcc33);
+  box-shadow: 0 8px 0 #ff9900, 0 10px 20px rgba(255, 153, 0, 0.2);
+}
+
+#special-btn:hover {
+  box-shadow: 0 10px 0 #ff9900, 0 15px 25px rgba(255, 153, 0, 0.3);
+}
+
+/* MESSAGE STYLING */
+.message-box {
+  background: #fff9fc;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px 0;
+  border: 3px dashed #ffcce0;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#hug-counter {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ff3385;
+  margin-bottom: 10px;
+}
+
+#hug-message {
+  font-size: 1.2rem;
+  color: #ff6699;
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* FLOATING ELEMENTS */
+.float {
+  position: absolute;
+  font-size: 28px;
+  animation: floatUp linear infinite;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 1;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  to {
+    transform: translateY(-10vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* HEART TRAIL */
+.heart-trail {
+  position: absolute;
+  font-size: 24px;
+  pointer-events: none;
+  z-index: 5;
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.5); }
+}
+
+/* SPECIAL SURPRISE */
+.surprise-container {
+  margin-top: 25px;
+  padding: 20px;
+  background: #fff0f7;
+  border-radius: 20px;
+  border: 3px solid #ffcce0;
+  animation: heartbeat 2s infinite;
+}
+
+.surprise-text {
+  font-size: 1.3rem;
+  color: #ff3385;
+  font-family: 'Dancing Script', cursive;
+  margin-bottom: 15px;
+}
+
+#special-surprise {
+  font-size: 60px;
+  margin-top: 10px;
+  animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-15px); }
+}
+
+/* SECRET MESSAGE */
+.secret-message {
+  background: #f9f0ff;
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 20px;
+  border: 2px dashed #d9b3ff;
+  font-style: italic;
+  color: #9966cc;
+}
+
+/* RESPONSIVE */
+@media (max-width: 500px) {
+  .screen {
+    padding: 25px;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  .teddy {
+    font-size: 90px;
+  }
+  
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  button {
+    width: 100%;
+    max-width: 280px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- SCREEN 1 -->
-<div class="card" id="s1">
-  <h1>🧸 Happy Teddy Day</h1>
-  <p>
-    This little teddy is here for you 🤍  
-    Tap it to give a warm hug.
-  </p>
-  <div class="teddy" id="teddy">🧸</div>
-  <p id="msg">Hugs given: 0 🤗</p>
+<!-- SCREEN 0 - ENTRANCE -->
+<div class="screen" id="s0">
+  <h1>My Dearest Love 💖</h1>
+  <p class="subtitle">This Teddy Day is just for you...</p>
+  
+  <div class="teddy-container">
+    <div class="teddy heartbeat" id="teddy">🧸</div>
+  </div>
+  
+  <div class="message-box">
+    <p>My sweetest girl,</p>
+    <p>This little teddy carries all my love for you.</p>
+    <p>Tap it to receive warm hugs 💕</p>
+  </div>
+  
+  <div class="button-container">
+    <button id="start-btn">Begin Our Teddy Day 🧸</button>
+  </div>
 </div>
 
-<!-- SCREEN 2 -->
-<div class="card hidden" id="s2">
-  <h1>🤍 From the Teddy</h1>
-  <p>
-    Thank you for every hug 🧸  
-    Even on quiet days,  
-    you deserve warmth, care, and love 💕
-  </p>
+<!-- SCREEN 1 - MAIN INTERACTION -->
+<div class="screen hidden" id="s1">
+  <h2>Happy Teddy Day, My Love! 🧸💕</h2>
+  <p>Give this teddy hugs and see what happens...</p>
+  
+  <div class="teddy-container">
+    <div class="teddy" id="main-teddy">🧸</div>
+  </div>
+  
+  <div class="message-box">
+    <div id="hug-counter">Hugs given: 0 🤗</div>
+    <div id="hug-message">Give your first hug to begin!</div>
+  </div>
+  
+  <div class="button-container">
+    <button id="special-btn">Special Surprise ✨</button>
+    <button id="next-btn">Next Message 💌</button>
+  </div>
+  
+  <p class="secret-message">Every hug stores a special message just for you, my love.</p>
+</div>
+
+<!-- SCREEN 2 - SPECIAL MESSAGES -->
+<div class="screen hidden" id="s2">
+  <h2>For My Beautiful Girl 💖</h2>
+  
+  <div class="surprise-container">
+    <p class="surprise-text">My darling, you mean everything to me</p>
+    <div id="special-surprise">💝</div>
+    <p class="surprise-text">Just like this teddy, I'm always here for you</p>
+  </div>
+  
+  <div class="message-box">
+    <p>No matter what happens,</p>
+    <p>my love for you grows stronger every day.</p>
+    <p>You are my happiness, my peace, my everything.</p>
+  </div>
+  
+  <div class="button-container">
+    <button id="back-btn">Back to Hugs 🧸</button>
+    <button id="final-btn">Final Surprise 🎁</button>
+  </div>
+</div>
+
+<!-- SCREEN 3 - FINAL SURPRISE -->
+<div class="screen hidden" id="s3">
+  <h1>I Love You Forever 💕</h1>
+  
+  <div class="teddy-container">
+    <div class="teddy heartbeat" style="font-size: 100px;">🧸❤️🧸</div>
+  </div>
+  
+  <div class="message-box">
+    <p>My dearest love,</p>
+    <p>On this Teddy Day, I want you to know...</p>
+    <p>You are the most precious person in my life.</p>
+    <p>I cherish every moment with you.</p>
+    <p>I adore your smile, your laugh, your heart.</p>
+    <p>You are my forever teddy bear 🧸💖</p>
+  </div>
+  
+  <div class="button-container">
+    <button id="restart-btn">Start Over 🔄</button>
+  </div>
+  
+  <div class="secret-message">
+    <p>P.S. This is just a small token of my endless love for you.</p>
+    <p>Wait for the real surprise I have planned for you today! 💝</p>
+  </div>
 </div>
 
 <script>
-/* STATE */
+// STATE
 let hugs = 0;
-const teddy = document.getElementById("teddy");
-const msg = document.getElementById("msg");
-const s1 = document.getElementById("s1");
-const s2 = document.getElementById("s2");
+let currentMessageIndex = 0;
+let heartTrailEnabled = true;
 
-/* SUPPORTIVE MESSAGES */
-const messages = [
-  "You’re doing better than you think 🤍",
-  "It’s okay to rest sometimes 🧸",
-  "You matter. Always 💕",
-  "You’re not alone, even now 🌸",
-  "You deserve gentle love 🤗"
+// ELEMENTS
+const screens = {
+  s0: document.getElementById("s0"),
+  s1: document.getElementById("s1"),
+  s2: document.getElementById("s2"),
+  s3: document.getElementById("s3")
+};
+
+const startBtn = document.getElementById("start-btn");
+const mainTeddy = document.getElementById("main-teddy");
+const hugCounter = document.getElementById("hug-counter");
+const hugMessage = document.getElementById("hug-message");
+const specialBtn = document.getElementById("special-btn");
+const nextBtn = document.getElementById("next-btn");
+const backBtn = document.getElementById("back-btn");
+const finalBtn = document.getElementById("final-btn");
+const restartBtn = document.getElementById("restart-btn");
+
+// ROMANTIC MESSAGES FOR YOUR GIRLFRIEND
+const romanticMessages = [
+  "Your smile makes my world brighter 🌟",
+  "I fall for you more every single day 💘",
+  "You're the most beautiful part of my life 🌸",
+  "Holding you feels like home 🏡",
+  "My love for you grows with every heartbeat 💓",
+  "You're my dream come true ✨",
+  "Every hug from you feels like magic 🪄",
+  "I'm the luckiest person to have you 💖",
+  "You're my sunshine on cloudy days ☀️",
+  "I cherish every moment with you ⏳",
+  "Your laugh is my favorite sound 🎶",
+  "You make my soul feel at peace 🕊️",
+  "I love you more than words can express 💌",
+  "You're my always and forever 💕",
+  "My love for you is endless ♾️"
 ];
 
-/* HUG INTERACTION */
-teddy.addEventListener("click", () => {
+// SPECIAL SURPRISE MESSAGES
+const specialMessages = [
+  "I have a real teddy bear waiting for you! 🧸",
+  "You deserve all the love in the world 💝",
+  "Our love story is my favorite 📖",
+  "Can't wait to see you and give you the biggest hug! 🤗",
+  "You're my greatest adventure 🗺️",
+  "Every day with you is a blessing 🙏"
+];
+
+// CHANGE SCREEN FUNCTION
+function changeScreen(from, to) {
+  screens[from].classList.add("hidden");
+  screens[to].classList.remove("hidden");
+  
+  // Add floating elements when screens change
+  if (to === "s1" || to === "s3") {
+    createFloatingHearts(10);
+  }
+}
+
+// CREATE FLOATING HEARTS
+function createFloatingHearts(count) {
+  const hearts = ["💖", "💕", "💗", "💓", "💞", "🧸", "🌸", "✨"];
+  
+  for (let i = 0; i < count; i++) {
+    const heart = document.createElement("div");
+    heart.className = "float";
+    heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (5 + Math.random() * 8) + "s";
+    heart.style.fontSize = (20 + Math.random() * 24) + "px";
+    heart.style.opacity = 0.6 + Math.random() * 0.4;
+    
+    document.body.appendChild(heart);
+    
+    // Remove heart after animation completes
+    setTimeout(() => {
+      if (heart.parentNode) {
+        heart.parentNode.removeChild(heart);
+      }
+    }, 12000);
+  }
+}
+
+// CREATE HEART TRAIL
+function createHeartTrail(x, y) {
+  if (!heartTrailEnabled) return;
+  
+  const heart = document.createElement("div");
+  heart.className = "heart-trail";
+  heart.innerHTML = "💖";
+  heart.style.left = (x - 12) + "px";
+  heart.style.top = (y - 12) + "px";
+  
+  document.body.appendChild(heart);
+  
+  setTimeout(() => {
+    if (heart.parentNode) {
+      heart.parentNode.removeChild(heart);
+    }
+  }, 1000);
+}
+
+// UPDATE HUG COUNTER AND MESSAGE
+function updateHugCounter() {
   hugs++;
-  teddy.classList.add("hug");
-  setTimeout(()=>teddy.classList.remove("hug"),300);
+  hugCounter.textContent = `Hugs given: ${hugs} 🤗`;
+  
+  // Select message based on hug count
+  let messageIndex = Math.min(hugs - 1, romanticMessages.length - 1);
+  hugMessage.textContent = romanticMessages[messageIndex];
+  
+  // Add hug effect to teddy
+  mainTeddy.classList.add("hug");
+  setTimeout(() => {
+    mainTeddy.classList.remove("hug");
+  }, 500);
+  
+  // Create floating hearts on some hugs
+  if (hugs % 3 === 0) {
+    createFloatingHearts(5);
+  }
+  
+  // Show special surprise screen after 8 hugs
+  if (hugs === 8) {
+    setTimeout(() => {
+      changeScreen("s1", "s2");
+    }, 800);
+  }
+}
 
-  const m = messages[Math.min(hugs-1, messages.length-1)];
-  msg.innerText = `Hugs given: ${hugs} 🤗\n${m}`;
+// EVENT LISTENERS
+startBtn.addEventListener("click", () => {
+  changeScreen("s0", "s1");
+  createFloatingHearts(15);
+});
 
-  if(hugs >= 5){
-    setTimeout(()=>{
-      s1.classList.add("hidden");
-      s2.classList.remove("hidden");
-    },800);
+mainTeddy.addEventListener("click", (e) => {
+  updateHugCounter();
+  createHeartTrail(e.clientX, e.clientY);
+});
+
+// Mouse movement for heart trail
+document.addEventListener("mousemove", (e) => {
+  if (Math.random() > 0.7) { // Only create hearts sometimes
+    createHeartTrail(e.clientX, e.clientY);
   }
 });
 
-/* FLOATING SOFT ICONS */
-const floats = ["🤍","✨","🌸","💗"];
-for(let i=0;i<18;i++){
-  const f=document.createElement("div");
-  f.className="float";
-  f.innerText=floats[Math.floor(Math.random()*floats.length)];
-  f.style.left=Math.random()*100+"vw";
-  f.style.animationDuration=6+Math.random()*6+"s";
-  document.body.appendChild(f);
-}
-</script>
+specialBtn.addEventListener("click", () => {
+  const randomMessage = specialMessages[Math.floor(Math.random() * specialMessages.length)];
+  hugMessage.textContent = randomMessage;
+  hugMessage.classList.add("heartbeat");
+  
+  setTimeout(() => {
+    hugMessage.classList.remove("heartbeat");
+  }, 1200);
+  
+  createFloatingHearts(8);
+});
 
+nextBtn.addEventListener("click", () => {
+  currentMessageIndex = (currentMessageIndex + 1) % romanticMessages.length;
+  hugMessage.textContent = romanticMessages[currentMessageIndex];
+  createFloatingHearts(3);
+});
+
+backBtn.addEventListener("click", () => {
+  changeScreen("s2", "s1");
+});
+
+finalBtn.addEventListener("click", () => {
+  changeScreen("s2", "s3");
+  createFloatingHearts(20);
+});
+
+restartBtn.addEventListener("click", () => {
+  hugs = 0;
+  currentMessageIndex = 0;
+  hugCounter.textContent = "Hugs given: 0 🤗";
+  hugMessage.textContent = "Give your first hug to begin!";
+  changeScreen("s3", "s0");
+});
+
+// INITIALIZE FLOATING ELEMENTS
+for (let i = 0; i < 25; i++) {
+  setTimeout(() => {
+    createFloatingHearts(1);
+  }, i * 300);
+}
+
+// INITIAL HEARTBEAT EFFECT ON ENTRANCE TEDDY
+const entranceTeddy = document.getElementById("teddy");
+setInterval(() => {
+  entranceTeddy.classList.toggle("heartbeat");
+}, 3000);
+</script>
 </body>
 </html>
