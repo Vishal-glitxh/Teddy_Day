@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Teddy Day 🧸</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Comic Sans MS","Poppins",cursive;
+}
+
+body{
+  height:100vh;
+  overflow:hidden;
+  background:linear-gradient(135deg,#fff0f5,#fef6e4,#e0f7fa);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* CARD */
+.card{
+  width:92%;
+  max-width:420px;
+  background:#fff;
+  border-radius:32px;
+  padding:28px;
+  text-align:center;
+  border:4px solid #ffc0cb;
+  box-shadow:0 14px 0 #ff9eb5;
+  animation:pop 0.6s ease;
+  position:relative;
+  z-index:2;
+}
+
+@keyframes pop{
+  from{transform:scale(0.85);}
+  to{transform:scale(1);}
+}
+
+.hidden{display:none;}
+
+h1{
+  color:#ff6f91;
+  margin-bottom:12px;
+}
+
+p{
+  color:#ff8fab;
+  font-size:1.05em;
+  line-height:1.6;
+  min-height:70px;
+}
+
+/* TEDDY */
+.teddy{
+  font-size:90px;
+  margin:10px 0;
+  animation:breath 3s ease-in-out infinite;
+  cursor:pointer;
+}
+
+@keyframes breath{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.05);}
+}
+
+/* HUG EFFECT */
+.hug{
+  animation:hug 0.4s ease;
+}
+
+@keyframes hug{
+  0%{transform:scale(1);}
+  50%{transform:scale(0.9);}
+  100%{transform:scale(1);}
+}
+
+/* BUTTON */
+button{
+  margin-top:15px;
+  padding:12px 30px;
+  border:none;
+  border-radius:40px;
+  background:#ff85b3;
+  color:#fff;
+  font-size:1em;
+  cursor:pointer;
+  box-shadow:0 6px 0 #ff5f9e;
+}
+
+button:active{
+  transform:translateY(4px);
+  box-shadow:0 2px 0 #ff5f9e;
+}
+
+/* FLOATING HEARTS */
+.float{
+  position:absolute;
+  font-size:22px;
+  animation:floatUp linear infinite;
+  opacity:0.8;
+  pointer-events:none;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(100vh);}
+  to{transform:translateY(-10vh);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1 -->
+<div class="card" id="s1">
+  <h1>🧸 Happy Teddy Day</h1>
+  <p>
+    This little teddy is here for you 🤍  
+    Tap it to give a warm hug.
+  </p>
+  <div class="teddy" id="teddy">🧸</div>
+  <p id="msg">Hugs given: 0 🤗</p>
+</div>
+
+<!-- SCREEN 2 -->
+<div class="card hidden" id="s2">
+  <h1>🤍 From the Teddy</h1>
+  <p>
+    Thank you for every hug 🧸  
+    Even on quiet days,  
+    you deserve warmth, care, and love 💕
+  </p>
+</div>
+
+<script>
+/* STATE */
+let hugs = 0;
+const teddy = document.getElementById("teddy");
+const msg = document.getElementById("msg");
+const s1 = document.getElementById("s1");
+const s2 = document.getElementById("s2");
+
+/* SUPPORTIVE MESSAGES */
+const messages = [
+  "You’re doing better than you think 🤍",
+  "It’s okay to rest sometimes 🧸",
+  "You matter. Always 💕",
+  "You’re not alone, even now 🌸",
+  "You deserve gentle love 🤗"
+];
+
+/* HUG INTERACTION */
+teddy.addEventListener("click", () => {
+  hugs++;
+  teddy.classList.add("hug");
+  setTimeout(()=>teddy.classList.remove("hug"),300);
+
+  const m = messages[Math.min(hugs-1, messages.length-1)];
+  msg.innerText = `Hugs given: ${hugs} 🤗\n${m}`;
+
+  if(hugs >= 5){
+    setTimeout(()=>{
+      s1.classList.add("hidden");
+      s2.classList.remove("hidden");
+    },800);
+  }
+});
+
+/* FLOATING SOFT ICONS */
+const floats = ["🤍","✨","🌸","💗"];
+for(let i=0;i<18;i++){
+  const f=document.createElement("div");
+  f.className="float";
+  f.innerText=floats[Math.floor(Math.random()*floats.length)];
+  f.style.left=Math.random()*100+"vw";
+  f.style.animationDuration=6+Math.random()*6+"s";
+  document.body.appendChild(f);
+}
+</script>
+
+</body>
+</html>
